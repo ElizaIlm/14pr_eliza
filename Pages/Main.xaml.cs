@@ -20,9 +20,20 @@ namespace pr14_eliza.Pages
     /// </summary>
     public partial class Main : Page
     {
+        public List<Items> items = new List<Items> ();
         public Main()
         {
             InitializeComponent();
+            items.add(new Item("Шкаф", 20000, "ghjjh_5755763.jpg"));
+            LoadItems();
+        }
+        public void LoadItems()
+        {
+            parent.Children.Clear ();
+            foreach(Item item in items)
+            {
+                parent.Children.Add(new Elements.Item(item));
+            }
         }
     }
 }
